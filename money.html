@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Money Bouquets – Fleur de Dan</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="category-page">
+
+<!-- COPY FROM INDEX -->
+<header class="header">
+  <nav class="navbar container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Fleur de Dan Logo">
+      <span>Fleur de Dan</span>
+    </div>
+
+    <ul class="nav-links">
+  <li><a href="index.html">Home</a></li>
+
+  <li class="dropdown">
+    <a href="#" class="dropbtn">Collections</a>
+    <ul class="dropdown-content">
+      <li><a href="roses.html">Roses bouquets</a></li>
+      <li><a href="mixed.html">Mixed-Type bouquets</a></li>
+      <li><a href="sunflower.html">Sunflower bouquets</a></li>
+      <li><a href="snack.html">Snacks bouquets</a></li>
+      <li><a href="spray.html">Spray Roses bouquets</a></li>
+      <li><a href="money.html">Money bouquets</a></li>
+      <li><a href="tulip.html">Tulip bouquets</a></li>
+      <li><a href="daisy.html">Daisy bouquets</a></li>
+    </ul>
+  </li>
+
+  <li><a href="index.html#contact">Contact Us</a></li>
+
+  <!-- ✅ CART -->
+  <li>
+    <a href="#" onclick="toggleCart()">
+  🛒 Cart (<span id="cart-count">0</span>)
+</a>
+  </li>
+</ul>
+  </nav>
+</header>
+  
+<section class="products-section">
+  <h2 class="section-title">Money Bouquets</h2>
+
+<p class="custom-note">Money bouquets service fee depends on notes amount.</p>
+<p class="custom-note">You can customize from 1–100 notes.</p>
+<p class="custom-note">If you want to order above 100 notes , Please contact us directly.</p>
+
+  <div class="product-grid">
+
+    <!-- PRODUCT 1 -->
+    <div class="product-card" data-price="1200">
+      <div class="product-img">
+        <img src="assets/images/money1.jpg" alt="Money Bouquet 1">
+      </div>
+
+      <h3>Money Bouquet 1 </h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="product-card" data-price="1500">
+      <div class="product-img">
+        <img src="assets/images/money2.jpg" alt="Money Bouquet 2">
+      </div>
+
+      <h3>Money Bouquet 2</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="product-card" data-price="1800">
+      <div class="product-img">
+        <img src="assets/images/money3.jpg" alt="Money Bouquet 3">
+      </div>
+
+      <h3>Money Bouquet 3</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="product-card" data-price="1500">
+      <div class="product-img">
+        <img src="assets/images/money4.jpg" alt="Money Bouquet 4">
+      </div>
+
+      <h3>Money Bouquet 4</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+        <!-- PRODUCT 5 -->
+    <div class="product-card" data-price="1500">
+      <div class="product-img">
+        <img src="assets/images/money5.jpg" alt="Money Bouquet 5">
+      </div>
+
+      <h3>Money Bouquet 5</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+        <!-- PRODUCT 6 -->
+    <div class="product-card" data-price="1500">
+      <div class="product-img">
+        <img src="assets/images/money6.jpg" alt="Money Bouquet 6">
+      </div>
+
+      <h3>Money Bouquet 6</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+        <!-- PRODUCT 7 -->
+    <div class="product-card" data-price="1500">
+      <div class="product-img">
+        <img src="assets/images/money7.jpg" alt="Money Bouquet 7">
+      </div>
+
+      <h3>Money Bouquet 7</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+        <!-- PRODUCT 8 -->
+    <div class="product-card" data-price="1500">
+      <div class="product-img">
+        <img src="assets/images/money8.jpg" alt="Money Bouquet 8">
+      </div>
+
+      <h3>Money Bouquet 8</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+        <!-- PRODUCT 9 -->
+    <div class="product-card" data-price="1500">
+      <div class="product-img">
+        <img src="assets/images/money9.jpg" alt="Money Bouquet 9">
+      </div>
+
+      <h3>Money Bouquet 9</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+        <!-- PRODUCT 10 -->
+    <div class="product-card" data-price="1500">
+      <div class="product-img">
+        <img src="assets/images/money10.jpg" alt="Money Bouquet 10">
+      </div>
+
+      <h3>Money Bouquet 10</h3>
+
+      <button class="add-to-cart">
+        Add to Cart
+      </button>
+    </div>
+
+  </div>
+</section>
+    <!-- ================= CUSTOM ORDER ================= -->
+<section class="custom-order-section" id="custom-order">
+  <div class="container">
+
+    <h2 class="section-title">Customize Your Bouquet</h2>
+    <p class="custom-subtitle">
+      Tell us your dream bouquet and we will create it for you 🌸
+    </p>
+
+    <form id="customForm" class="custom-form">
+
+  <div class="form-group">
+    <label>Your Name</label>
+    <input type="text" id="name" required>
+  </div>
+
+  <div class="form-group">
+    <label>Phone / Line ID</label>
+    <input type="text" id="phone" required>
+  </div>
+
+  <div class="form-group">
+    <label>Flower Type</label>
+    <select id="flower" required>
+      <option value="">Select flower</option>
+      <option>Roses</option>
+      <option>Mixed-Type</option>
+      <option>Sunflowers</option>
+      <option>Snack</option>
+      <option>Spray</option>
+      <option>Money</option>
+      <option>Tulip</option>
+      <option>Daisy</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Preferred Color</label>
+    <input type="text" id="color" placeholder="e.g. Red, Pink, White">
+  </div>
+
+  <div class="form-group">
+    <label>Budget (THB)</label>
+    <input type="number" id="budget" placeholder="e.g. 500">
+  </div>
+
+  <div class="form-group full">
+    <label>Special Request</label>
+    <textarea id="message" rows="4" placeholder="Wrap style, message card, etc."></textarea>
+  </div>
+
+  <button type="submit" class="btn-primary">
+    Send Custom Order
+  </button>
+
+</form>
+
+  </div>
+</section>
+    
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <!-- Brand -->
+    <div class="footer-col">
+      <h3 class="footer-logo">Fleur de Dan</h3>
+      <p class="footer-text">
+        Luxury handcrafted bouquets designed to express love,
+        elegance, and unforgettable moments.
+      </p>
+
+      <div class="footer-social">
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/share/1BNrtzqCry/?mibextid=wwXIfr" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <!-- TikTok -->
+  <a href="https://www.tiktok.com/@fleurdedan?_r=1&_t=ZS-946JZvPJikf" target="_blank">
+    <i class="fab fa-tiktok"></i>
+  </a>
+
+  <!-- Line -->
+  <a href="https://line.me/ti/p/~daniel202004" target="_blank">
+  <i class="fab fa-line"></i>
+</a>
+
+</div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4 class="footer-title">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#shop">Collections</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4 class="footer-title">Contact</h4>
+      <p class="footer-text"><i class="fas fa-map-marker-alt"></i> Bangkok, Thailand</p>
+      <p class="footer-text"><i class="fas fa-phone"></i> +66 645 8070 62</p>
+      <p class="footer-text"><i class="fas fa-envelope"></i> fleur@dan.com</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-col">
+      <h4 class="footer-title">Stay Updated</h4>
+      <p class="footer-text">Get new bouquet updates & offers.</p>
+
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Fleur de Dan. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- QUICK VIEW MODAL -->
+<div id="quick-modal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" id="quick-close">&times;</button>
+
+    <img id="quick-img" src="" style="width:100%; border-radius:12px; margin-bottom:15px;">
+    <h3 id="quick-name"></h3>
+    <p id="quick-price" class="price"></p>
+
+    <button class="btn-primary" id="quickAddBtn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button onclick="toggleCart()">✖</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+<!-- 🌸 Customize Options (STEP 2 code here) -->
+<!-- 🌸 Customize Order Panel -->
+<!--<div class="customize-box">
+
+  <h3>Customize Your Bouquet</h3>
+
+  <label>Money Notes Count:</label>
+  <select id="money-count">
+    <option value="">Select</option>
+    <option value="3">3 notes</option>
+    <option value="5">5 notes</option>
+    <option value="10">10 notes</option>
+    <option value="15">15 notes</option>
+    <option value="20">20 notes</option>
+    <option value="25">25 notes</option>
+    <option value="30">30 notes</option>
+    <option value="35">35 notes</option>
+    <option value="40">40 notes</option>
+    <option value="45">45 notes</option>
+    <option value="50">50 notes</option>
+    <option value="55">55 notes</option>
+    <option value="60">60 notes</option>
+    <option value="65">65 notes</option>
+    <option value="70">70 notes</option>
+    <option value="75">75 notes</option>
+    <option value="80">80 notes</option>
+    <option value="85">85 notes</option>
+    <option value="90">90 notes</option>
+    <option value="95">95 notes</option>
+    <option value="100">100 notes</option>
+    <option value="custom">✨ Customize your own</option>
+  </select>
+
+  <input
+  type="number"
+  id="custom-notes"
+  placeholder="Enter notes (1–100)"
+  min="1"
+  max="100"
+  step="1"
+  style="display:none; margin-top:8px;"
+/>
+
+  <p id="service-fee">Service Fee: 0 Baht</p>
+
+</div>-->
+
+  <div class="cart-footer">
+    <h4>Total: <span id="cart-total">0</span> THB</h4>
+  </div>
+</div>
+
+<script>
+// ================= STORAGE =================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+// ================= SAVE =================
+function saveData(){
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  updateCounts();
+}
+
+// ================= COUNTS =================
+function updateCounts(){
+  document.getElementById("cart-count").innerText =
+    cart.reduce((a,b)=>a+b.qty,0);
+}
+
+// ================= CART TOGGLE =================
+function toggleCart(){
+  document.getElementById("cartDrawer").classList.toggle("open");
+  renderCart();
+}
+
+// ================= ADD TO CART =================
+document.querySelectorAll(".add-to-cart").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const card = btn.closest(".product-card");
+    const name = card.querySelector("h3").textContent;
+    const price = parseInt(card.dataset.price);
+
+    const found = cart.find(i=>i.name===name);
+
+    if(found){
+  found.qty++;
+
+  // 🛡️ safety for old cart data
+  if(found.moneyValue === undefined) found.moneyValue = 0;
+  if(found.notesCount === undefined) found.notesCount = 1;
+}else{
+    cart.push({
+  name,
+  price,
+  qty: 1,
+  type: "money", // ⭐⭐⭐ ADD THIS LINE
+  flowerColor: "",
+  wrapColor: "",
+  customNote: "",
+  moneyValue: 0,
+  notesCount: 1
+});
+    }
+
+    saveData();
+    renderCart();
+  });
+});
+
+// ================= RENDER CART =================
+function renderCart(){
+  const box = document.getElementById("cart-items");
+  box.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item,index)=>{
+    // 🛡️ safety for old data
+if(!item.type){
+  item.type = item.name.toLowerCase().includes("money")
+    ? "money"
+    : "normal";
+}
+    // ✅ service fee only (NO original price)
+let itemTotal = 0;
+
+if(item.name.toLowerCase().includes("money")){
+
+  // 💰 money amount
+  const moneyTotal = (item.moneyValue || 0) * (item.notesCount || 0);
+
+  // 🧾 service fee from notes
+  const fee = priceMap[item.notesCount] || 0;
+
+  itemTotal = (moneyTotal + fee) * item.qty;
+
+}else{
+  // 🌸 normal bouquet
+  itemTotal = item.price * item.qty;
+}
+
+total += itemTotal;
+
+    box.innerHTML += `
+  <div class="cart-item">
+    <div>
+      <b>${item.name}</b><br>
+      
+
+      <!-- 🌹 Flower Color -->
+      <div class="cart-option">
+        Flower:
+        <select onchange="updateOption(${index}, 'flowerColor', this.value)">
+          <option value="">Select</option>
+          <option value="Red" ${item.flowerColor==="Red"?"selected":""}>Red</option>
+          <option value="Pink" ${item.flowerColor==="Pink"?"selected":""}>Pink</option>
+          <option value="White" ${item.flowerColor==="White"?"selected":""}>White</option>
+          <option value="Yellow" ${item.flowerColor==="Yellow"?"selected":""}>Yellow</option>
+        </select>
+      </div>
+
+      <!-- 🎀 Wrap Color -->
+      <div class="cart-option">
+        Wrapping paper:
+        <select onchange="updateOption(${index}, 'wrapColor', this.value)">
+          <option value="">Select</option>
+          <option value="Black" ${item.wrapColor==="Black"?"selected":""}>Black</option>
+          <option value="Pink" ${item.wrapColor==="Pink"?"selected":""}>Pink</option>
+          <option value="White" ${item.wrapColor==="White"?"selected":""}>White</option>
+          <option value="Gold" ${item.wrapColor==="Gold"?"selected":""}>Gold</option>
+        </select>
+      </div>
+
+    ${item.type === "money" ? `
+  <!-- 💵 Money Value -->
+  <div class="cart-option">
+    Money Value:
+    <select onchange="updateMoney(${index}, this.value)">
+      <option value="0">Select</option>
+      <option value="20" ${item.moneyValue==20?"selected":""}>20฿</option>
+      <option value="50" ${item.moneyValue==50?"selected":""}>50฿</option>
+      <option value="100" ${item.moneyValue==100?"selected":""}>100฿</option>
+      <option value="500" ${item.moneyValue==500?"selected":""}>500฿</option>
+      <option value="1000" ${item.moneyValue==1000?"selected":""}>1000฿</option>
+    </select>
+  </div>
+
+  <div class="cart-option" style="margin-top:6px; font-size:12px; color:#666;">
+    Service Fee: ${priceMap[item.notesCount] || 0} Baht
+  </div>
+
+  <div class="cart-option">
+    Notes:
+    <input type="number"
+      min="1"
+      max="100"
+      value="${item.notesCount || 1}"
+      onchange="updateNotes(${index}, this.value)">
+  </div>
+` : ""}
+      
+      <div class="cart-option">
+  Special Note:
+  <input
+    type="text"
+    placeholder="Optional (leave blank if none)"
+    value="${item.customNote || ''}"
+    oninput="updateOption(${index}, 'customNote', this.value)"
+  >
+</div>
+
+    </div>
+
+    <div class="qty-box">
+      <button onclick="changeQty(${index},-1)">−</button>
+      ${item.qty}
+      <button onclick="changeQty(${index},1)">+</button>
+      <button onclick="removeItem(${index})">🗑</button>
+    </div>
+  </div>
+`;
+  });
+
+  document.getElementById("cart-total").innerText = total;
+}
+
+// ================= QTY =================
+function changeQty(i,delta){
+  cart[i].qty += delta;
+  if(cart[i].qty <= 0) cart.splice(i,1);
+  saveData();
+  renderCart();
+}
+
+// ================= REMOVE =================
+function removeItem(i){
+  cart.splice(i,1);
+  saveData();
+  renderCart();
+}
+
+// ================= WISHLIST =================
+document.querySelectorAll(".wishlist").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    btn.classList.toggle("active");
+    btn.innerHTML = btn.classList.contains("active")
+      ? '<i class="fa-solid fa-heart"></i>'
+      : '<i class="fa-regular fa-heart"></i>';
+  });
+});
+
+// ================= QUICK VIEW =================
+const quickModal = document.getElementById("quick-modal");
+
+document.querySelectorAll(".quick-view").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.getElementById("quick-img").src = btn.dataset.img;
+    document.getElementById("quick-name").textContent = btn.dataset.name;
+    document.getElementById("quick-price").textContent =
+      btn.dataset.price + " THB";
+    quickModal.style.display = "flex";
+  });
+});
+
+document.getElementById("quick-close").onclick = ()=>{
+  quickModal.style.display = "none";
+};
+
+// init
+updateCounts();
+renderCart();
+
+</script>
+
+<script>
+document.getElementById("customForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let flower = document.getElementById("flower").value;
+  let color = document.getElementById("color").value;
+  let budget = document.getElementById("budget").value;
+  let message = document.getElementById("message").value;
+
+  let text =
+    "Hello! I want to customize an order.%0A" +
+    "Name: " + name + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Flower: " + flower + "%0A" +
+    "Color: " + color + "%0A" +
+    "Budget: " + budget + "%0A" +
+    "Details: " + message;
+
+  let yourNumber = "66645807062";
+
+  window.open("https://wa.me/" + yourNumber + "?text=" + text, "_blank");
+});
+
+function updateOption(index, key, value){
+  cart[index][key] = value;
+  saveData();
+}
+
+// ===== Money Bouquet Service Fee =====
+
+const priceMap = {
+1: 50,
+2: 100,
+3: 150,
+4: 200,
+5: 250,
+6: 300,
+7: 350,
+8: 400,
+9: 450,
+10: 500,
+11: 520,
+12: 540,
+13: 560,
+14: 580,
+15: 600,
+16: 640,
+17: 680,
+18: 720,
+19: 760,
+20: 800,
+21: 820,
+22: 840,
+23: 860,
+24: 880,
+25: 900,
+26: 960,
+27: 1020,
+28: 1080,
+29: 1140,
+30: 1200,
+31: 1220,
+32: 1240,
+33: 1260,
+34: 1280,
+35: 1300,
+36: 1340,
+37: 1380,
+38: 1420,
+39: 1460,
+40: 1500,
+41: 1520,
+42: 1540,
+43: 1560,
+44: 1580,
+45: 1600,
+46: 1680,
+47: 1760,
+48: 1840,
+49: 1920,
+50: 2000,
+51: 2040,
+52: 2080,
+53: 2120,
+54: 2160,
+55: 2200,
+56: 2260,
+57: 2320,
+58: 2380,
+59: 2440,
+60: 2500,
+61: 2560,
+62: 2620,
+63: 2680,
+64: 2740,
+65: 2800,
+66: 2840,
+67: 2880,
+68: 2920,
+69: 2960,
+70: 3000,
+71: 3060,
+72: 3120,
+73: 3180,
+74: 3240,
+75: 3300,
+76: 3340,
+77: 3380,
+78: 3420,
+79: 3460,
+80: 3500,
+81: 3560,
+82: 3620,
+83: 3680,
+84: 3740,
+85: 3800,
+86: 3840,
+87: 3880,
+88: 3920,
+89: 3960,
+90: 4000,
+91: 4060,
+92: 4120,
+93: 4180,
+94: 4240,
+95: 4300,
+96: 4340,
+97: 4380,
+98: 4420,
+99: 4460,
+100: 4500
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("money-count");
+  const customInput = document.getElementById("custom-notes");
+  const feeText = document.getElementById("service-fee");
+
+  if (!select) return;
+
+  select.addEventListener("change", () => {
+    if (select.value === "custom") {
+      customInput.style.display = "block";
+      feeText.textContent = "Service Fee: --";
+      localStorage.setItem("serviceFee", 0);
+    } else {
+      customInput.style.display = "none";
+
+      const fee = priceMap[select.value] || 0;
+      feeText.textContent = "Service Fee: " + fee + " Baht";
+
+      
+    }
+
+    renderCart();
+  });
+
+  customInput.addEventListener("input", () => {
+  let notes = parseInt(customInput.value) || 0;
+
+  // ✅ min guard
+if (notes < 1) {
+  notes = 1;
+  customInput.value = 1;
+}
+
+  // ✅ max guard
+  if (notes > 100) {
+    feeText.textContent = "Maximum allowed is 100 notes.";
+    notes = 100;
+    customInput.value = 100;
+  }
+  
+// ❌ if not in your price table
+if (!priceMap[notes]) {
+  feeText.textContent =
+    "Please select a valid notes amount (1–100)";
+  localStorage.setItem("serviceFee", 0);
+  renderCart();
+  return;
+}
+
+  const fee = getFeeFromNotes(notes);
+
+  feeText.textContent = "Service Fee: " + fee + " Baht";
+  localStorage.setItem("serviceFee", fee);
+
+  renderCart(); // ⭐ realtime update
+});
+
+}); // ✅🔥 THIS LINE WAS MISSING
+
+function getFeeFromNotes(notes) {
+  return priceMap[notes] || 0;
+}
+
+function updateMoney(index, value){
+  cart[index].moneyValue = parseInt(value) || 0;
+  saveData();
+  renderCart();
+}
+
+function updateNotes(index, value){
+  let notes = parseInt(value) || 1;
+
+  if(notes < 1) notes = 1;
+  if(notes > 100) notes = 100;
+
+  cart[index].notesCount = notes;
+  saveData();
+  renderCart();
+}
+
+</script>
+
+</body>
+</html>

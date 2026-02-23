@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunflower Bouquets – Fleur de Dan</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="category-page">
+
+<!-- COPY FROM INDEX -->
+<header class="header">
+  <nav class="navbar container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Fleur de Dan Logo">
+      <span>Fleur de Dan</span>
+    </div>
+
+    <ul class="nav-links">
+  <li><a href="index.html">Home</a></li>
+
+  <li class="dropdown">
+    <a href="#" class="dropbtn">Collections</a>
+    <ul class="dropdown-content">
+      <li><a href="roses.html">Roses bouquets</a></li>
+      <li><a href="mixed.html">Mixed-Type bouquets</a></li>
+      <li><a href="sunflower.html">Sunflower bouquets</a></li>
+      <li><a href="snack.html">Snacks bouquets</a></li>
+      <li><a href="spray.html">Spray Roses bouquets</a></li>
+      <li><a href="money.html">Money bouquets</a></li>
+      <li><a href="tulip.html">Tulip bouquets</a></li>
+      <li><a href="daisy.html">Daisy bouquets</a></li>
+    </ul>
+  </li>
+
+  <li><a href="index.html#contact">Contact Us</a></li>
+
+  <!-- ✅ CART -->
+  <li>
+    <a href="#" onclick="toggleCart()">
+  🛒 Cart (<span id="cart-count">0</span>)
+</a>
+  </li>
+</ul>
+  </nav>
+</header>
+  
+<section class="products-section">
+  <h2 class="section-title">Sunflower Bouquets</h2>
+
+  <div class="product-grid">
+
+    <!-- PRODUCT 1 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="assets/images/sun1.jpg" alt="Single Sunflower Bouquet">
+      </div>
+
+      <h3>Single Sunflower Bouquet</h3>
+      <p class="price">250 THB</p>
+
+      <button class="add-to-cart"
+        onclick="addToCart('Single Sunflower Bouquet',250,'assets/images/sun1.jpg')">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="assets/images/sun2.jpg" alt="3 sunflowers Bouquet">
+      </div>
+
+      <h3>3 sunflowers Bouquet</h3>
+      <p class="price">550 THB</p>
+
+      <button class="add-to-cart"
+        onclick="addToCart('3 sunflowers Bouquet',550,'assets/images/sun2.jpg')">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="assets/images/sun3.jpg" alt="5 sunflowers Bouquet">
+      </div>
+
+      <h3>5 sunflowers Bouquet</h3>
+      <p class="price">1,200 THB</p>
+
+      <button class="add-to-cart"
+        onclick="addToCart('5 sunflowers Bouquet',1200,'assets/images/sun3.jpg')">
+        Add to Cart
+      </button>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="product-card">
+      <div class="product-img">
+        <img src="assets/images/sun4.jpg" alt="10 sunflowers Bouquet">
+      </div>
+
+      <h3>10 sunflowers Bouquet</h3>
+      <p class="price"> 1,650 THB</p>
+
+      <button class="add-to-cart"
+        onclick="addToCart('10 sunflowers Bouquet',1650,'assets/images/sun4.jpg')">
+        Add to Cart
+      </button>
+    </div>
+
+  </div>
+</section>
+    <!-- ================= CUSTOM ORDER ================= -->
+<section class="custom-order-section" id="custom-order">
+  <div class="container">
+
+    <h2 class="section-title">Customize Your Bouquet</h2>
+    <p class="custom-subtitle">
+      Tell us your dream bouquet and we will create it for you 🌸
+    </p>
+
+    <form id="customForm" class="custom-form">
+
+  <div class="form-group">
+    <label>Your Name</label>
+    <input type="text" id="name" required>
+  </div>
+
+  <div class="form-group">
+    <label>Phone / Line ID</label>
+    <input type="text" id="phone" required>
+  </div>
+
+  <div class="form-group">
+    <label>Flower Type</label>
+    <select id="flower" required>
+      <option value="">Select flower</option>
+      <option>Roses</option>
+      <option>Mixed-Type</option>
+      <option>Sunflowers</option>
+      <option>Snack</option>
+      <option>Spray</option>
+      <option>Money</option>
+      <option>Tulip</option>
+      <option>Daisy</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Preferred Color</label>
+    <input type="text" id="color" placeholder="e.g. Red, Pink, White">
+  </div>
+
+  <div class="form-group">
+    <label>Budget (THB)</label>
+    <input type="number" id="budget" placeholder="e.g. 500">
+  </div>
+
+  <div class="form-group full">
+    <label>Special Request</label>
+    <textarea id="message" rows="4" placeholder="Wrap style, message card, etc."></textarea>
+  </div>
+
+  <button type="submit" class="btn-primary">
+    Send Custom Order
+  </button>
+
+</form>
+
+  </div>
+</section>
+    
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <!-- Brand -->
+    <div class="footer-col">
+      <h3 class="footer-logo">Fleur de Dan</h3>
+      <p class="footer-text">
+        Luxury handcrafted bouquets designed to express love,
+        elegance, and unforgettable moments.
+      </p>
+
+      <div class="footer-social">
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/share/1BNrtzqCry/?mibextid=wwXIfr" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <!-- TikTok -->
+  <a href="https://www.tiktok.com/@fleurdedan?_r=1&_t=ZS-946JZvPJikf" target="_blank">
+    <i class="fab fa-tiktok"></i>
+  </a>
+
+  <!-- Line -->
+  <a href="https://line.me/ti/p/~daniel202004" target="_blank">
+  <i class="fab fa-line"></i>
+</a>
+
+</div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4 class="footer-title">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#shop">Collections</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4 class="footer-title">Contact</h4>
+      <p class="footer-text"><i class="fas fa-map-marker-alt"></i> Bangkok, Thailand</p>
+      <p class="footer-text"><i class="fas fa-phone"></i> +66 645 8070 62</p>
+      <p class="footer-text"><i class="fas fa-envelope"></i> fleur@dan.com</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-col">
+      <h4 class="footer-title">Stay Updated</h4>
+      <p class="footer-text">Get new bouquet updates & offers.</p>
+
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Fleur de Dan. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- QUICK VIEW MODAL -->
+<div id="quick-modal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" id="quick-close">&times;</button>
+
+    <img id="quick-img" src="" style="width:100%; border-radius:12px; margin-bottom:15px;">
+    <h3 id="quick-name"></h3>
+    <p id="quick-price" class="price"></p>
+
+    <button class="btn-primary" id="quickAddBtn">Add to Cart</button>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button onclick="toggleCart()">✖</button>
+  </div>
+
+  <div id="cart-items"></div>
+
+  <div class="cart-footer">
+    <h4>Total: <span id="cart-total">0</span> THB</h4>
+  </div>
+</div>
+
+<script>
+// ================= STORAGE =================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+// ================= SAVE =================
+function saveData(){
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  updateCounts();
+}
+
+// ================= COUNTS =================
+function updateCounts(){
+  document.getElementById("cart-count").innerText =
+    cart.reduce((a,b)=>a+b.qty,0);
+}
+
+// ================= CART TOGGLE =================
+function toggleCart(){
+  document.getElementById("cartDrawer").classList.toggle("open");
+  renderCart();
+}
+
+// ================= ADD TO CART =================
+document.querySelectorAll(".add-to-cart").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const card = btn.closest(".product-card");
+    const name = card.querySelector("h3").textContent;
+    const priceText = card.querySelector(".price").textContent;
+    const price = parseInt(priceText.replace(/[^0-9]/g,""));
+
+    const found = cart.find(i=>i.name===name);
+
+    if(found){
+      found.qty++;
+    }else{
+      cart.push({
+  name,
+  price,
+  qty: 1,
+  flowerColor: "",
+  wrapColor: "",
+  customNote: ""
+});
+    }
+
+    saveData();
+    renderCart();
+  });
+});
+
+// ================= RENDER CART =================
+function renderCart(){
+  const box = document.getElementById("cart-items");
+  box.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach((item,index)=>{
+    total += item.price * item.qty;
+
+    box.innerHTML += `
+  <div class="cart-item">
+    <div>
+      <b>${item.name}</b><br>
+      ${item.price} THB
+
+      <!-- 🌹 Flower Color -->
+      <div class="cart-option">
+        Flower:
+        <select onchange="updateOption(${index}, 'flowerColor', this.value)">
+          <option value="">Select</option>
+          <option value="Red" ${item.flowerColor==="Red"?"selected":""}>Red</option>
+          <option value="Pink" ${item.flowerColor==="Pink"?"selected":""}>Pink</option>
+          <option value="White" ${item.flowerColor==="White"?"selected":""}>White</option>
+          <option value="Yellow" ${item.flowerColor==="Yellow"?"selected":""}>Yellow</option>
+        </select>
+      </div>
+
+      <!-- 🎀 Wrap Color -->
+      <div class="cart-option">
+        Wrapping paper:
+        <select onchange="updateOption(${index}, 'wrapColor', this.value)">
+          <option value="">Select</option>
+          <option value="Black" ${item.wrapColor==="Black"?"selected":""}>Black</option>
+          <option value="Pink" ${item.wrapColor==="Pink"?"selected":""}>Pink</option>
+          <option value="White" ${item.wrapColor==="White"?"selected":""}>White</option>
+          <option value="Gold" ${item.wrapColor==="Gold"?"selected":""}>Gold</option>
+        </select>
+      </div>
+      
+      <div class="cart-option">
+  Special Note:
+  <input
+    type="text"
+    placeholder="Optional (leave blank if none)"
+    value="${item.customNote || ''}"
+    oninput="updateOption(${index}, 'customNote', this.value)"
+  >
+</div>
+
+    </div>
+
+    <div class="qty-box">
+      <button onclick="changeQty(${index},-1)">−</button>
+      ${item.qty}
+      <button onclick="changeQty(${index},1)">+</button>
+      <button onclick="removeItem(${index})">🗑</button>
+    </div>
+  </div>
+`;
+  });
+
+  document.getElementById("cart-total").innerText = total;
+}
+
+// ================= QTY =================
+function changeQty(i,delta){
+  cart[i].qty += delta;
+  if(cart[i].qty <= 0) cart.splice(i,1);
+  saveData();
+  renderCart();
+}
+
+// ================= REMOVE =================
+function removeItem(i){
+  cart.splice(i,1);
+  saveData();
+  renderCart();
+}
+
+// ================= WISHLIST =================
+document.querySelectorAll(".wishlist").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    btn.classList.toggle("active");
+    btn.innerHTML = btn.classList.contains("active")
+      ? '<i class="fa-solid fa-heart"></i>'
+      : '<i class="fa-regular fa-heart"></i>';
+  });
+});
+
+// ================= QUICK VIEW =================
+const quickModal = document.getElementById("quick-modal");
+
+document.querySelectorAll(".quick-view").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.getElementById("quick-img").src = btn.dataset.img;
+    document.getElementById("quick-name").textContent = btn.dataset.name;
+    document.getElementById("quick-price").textContent =
+      btn.dataset.price + " THB";
+    quickModal.style.display = "flex";
+  });
+});
+
+document.getElementById("quick-close").onclick = ()=>{
+  quickModal.style.display = "none";
+};
+
+// init
+updateCounts();
+renderCart();
+
+</script>
+
+<script>
+document.getElementById("customForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let flower = document.getElementById("flower").value;
+  let color = document.getElementById("color").value;
+  let budget = document.getElementById("budget").value;
+  let message = document.getElementById("message").value;
+
+  let text =
+    "Hello! I want to customize an order.%0A" +
+    "Name: " + name + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Flower: " + flower + "%0A" +
+    "Color: " + color + "%0A" +
+    "Budget: " + budget + "%0A" +
+    "Details: " + message;
+
+  let yourNumber = "66645807062";
+
+  window.open("https://wa.me/" + yourNumber + "?text=" + text, "_blank");
+});
+
+function updateOption(index, key, value){
+  cart[index][key] = value;
+  saveData();
+}
+
+</script>
+
+</body>
+</html>

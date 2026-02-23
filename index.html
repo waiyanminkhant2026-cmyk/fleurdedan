@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleur de Dan – Handcrafted Floral Arrangements</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+  <body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar container">
+      <div class="logo">
+  <img src="assets/images/logo.png" alt="Fleur de Dan Logo">
+  <span>Fleur de Dan</span>
+      </div>
+      
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+
+  
+  <!-- Collections ကို dropdown လုပ်လိုက်တယ် -->
+  <li class="dropdown">
+    <a href="#shop" class="dropbtn">Collections</a>
+    <ul class="dropdown-content">
+      <li><a href="roses.html">Roses bouquets</a></li>
+      <li><a href="mixed.html">Mixed-Type bouquets</a></li>
+      <li><a href="sunflower.html">Sunflower bouquets</a></li>
+      <li><a href="snack.html">Snacks bouquets</a></li>
+      <li><a href="spray.html">Spray Roses bouquets</a></li>
+      <li><a href="money.html">Money bouquets</a></li>
+      <li><a href="tulip.html">Tulip bouquets</a></li>
+      <li><a href="daisy.html">Daisy bouquets</a></li>
+    </ul>
+  </li>
+
+  <!-- ✅ NEW -->
+  <li><a href="#contact">Contact Us</a></li>
+
+  <!--<li><a href="#" id="cart-toggle">Cart (<span id="cart-count">0</span>)</a></li>-->
+</ul>
+
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Flowers That Speak When Words Cannot</h1>
+      <p>Same-day delivery in Bangkok. Fresh, handcrafted bouquets for every moment.</p>
+      <a href="roses.html" class="btn-primary">Explore Collections</a>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="shop section-padding">
+    <div class="container">
+      <h2 class="section-title">Our Bouquets</h2>
+      <div class="product-grid" id="product-grid">
+        <!-- Products inserted by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 🛒 CART DRAWER -->
+<div id="cartDrawer" class="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button onclick="toggleCart()">✕</button>
+  </div>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-footer">
+    Total: <span id="cartTotal">0 THB</span>
+  </div>
+</div>
+
+
+
+  <script src="script.js"></script>
+
+
+  <script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* ===== OPEN CLOSE ===== */
+function toggleCart(){
+  document.getElementById("cartDrawer").classList.toggle("open");
+}
+
+/* ===== CART COUNT ===== */
+function updateCartCount(){
+  const countEl = document.getElementById("cart-count");
+  if(!countEl) return;
+
+  let totalQty = 0;
+  cart.forEach(item=>{
+    totalQty += (item.qty || 1);
+  });
+
+  countEl.textContent = totalQty;
+}
+
+/* ===== RENDER CART ===== */
+function renderCart(){
+  const box = document.getElementById("cartItems");
+  const totalEl = document.getElementById("cartTotal");
+  if(!box) return;
+
+  box.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item,index)=>{
+    const priceNum = parseInt(item.price.replace(/,/g,""));
+    total += priceNum * (item.qty || 1);
+
+    box.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name}</span>
+        <div class="qty-box">
+          <button onclick="changeQty(${index},-1)">−</button>
+          <span>${item.qty || 1}</span>
+          <button onclick="changeQty(${index},1)">+</button>
+          <button onclick="removeItem(${index})">🗑</button>
+        </div>
+      </div>
+    `;
+  });
+
+  if(totalEl) totalEl.textContent = total.toLocaleString()+" THB";
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+/* ===== ADD TO CART ===== */
+function addToCart(name,price,img){
+  const found = cart.find(p=>p.name===name);
+  if(found){
+    found.qty = (found.qty||1)+1;
+  }else{
+    cart.push({name,price,img,qty:1});
+  }
+  renderCart();
+}
+
+/* ===== QTY ===== */
+function changeQty(index,change){
+  cart[index].qty += change;
+  if(cart[index].qty<=0) cart.splice(index,1);
+  renderCart();
+}
+
+/* ===== REMOVE ===== */
+function removeItem(index){
+  cart.splice(index,1);
+  renderCart();
+}
+
+/* ===== NAV CLICK ===== */
+document.getElementById("cart-toggle")?.addEventListener("click",(e)=>{
+  e.preventDefault();
+  toggleCart();
+});
+
+/* ===== INIT ===== */
+updateCartCount();
+renderCart();
+</script>
+
+<section id="contact" class="contact section-padding">
+  <div class="container contact-container">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Our Location</h3>
+        <p>Bangkok, Thailand</p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fas fa-phone"></i>
+        <h3>Phone</h3>
+        <p>+66 645 8070 62</p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <p>fleurdedan@gmail.com</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="container footer-grid">
+
+    <!-- Brand -->
+    <div class="footer-col">
+      <h3 class="footer-logo">Fleur de Dan</h3>
+      <p class="footer-text">
+        Luxury handcrafted bouquets designed to express love,
+        elegance, and unforgettable moments.
+      </p>
+
+      <div class="footer-social">
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/share/1BNrtzqCry/?mibextid=wwXIfr" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <!-- TikTok -->
+  <a href="https://www.tiktok.com/@fleurdedan?_r=1&_t=ZS-946JZvPJikf" target="_blank">
+    <i class="fab fa-tiktok"></i>
+  </a>
+
+  <!-- Line -->
+  <a href="https://line.me/ti/p/~daniel202004" target="_blank">
+  <i class="fab fa-line"></i>
+</a>
+
+</div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4 class="footer-title">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#shop">Collections</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h4 class="footer-title">Contact</h4>
+      <p class="footer-text"><i class="fas fa-map-marker-alt"></i> Bangkok, Thailand</p>
+      <p class="footer-text"><i class="fas fa-phone"></i> +66 645 8070 62</p>
+      <p class="footer-text"><i class="fas fa-envelope"></i> fleur@dan.com</p>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-col">
+      <h4 class="footer-title">Stay Updated</h4>
+      <p class="footer-text">Get new bouquet updates & offers.</p>
+
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Fleur de Dan. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+
+
+</html>
