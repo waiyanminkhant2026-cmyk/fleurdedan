@@ -15,37 +15,46 @@
 <!-- COPY FROM INDEX -->
 <header class="header">
   <nav class="navbar container">
+
     <div class="logo">
       <img src="assets/images/logo.png" alt="Fleur de Dan Logo">
       <span>Fleur de Dan</span>
     </div>
 
-    <ul class="nav-links">
-  <li><a href="index.html">Home</a></li>
+    <!-- ✅ HAMBURGER -->
+    <div id="menu-toggle" class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-  <li class="dropdown">
-    <a href="#" class="dropbtn">Collections</a>
-    <ul class="dropdown-content">
-      <li><a href="roses.html">Roses bouquets</a></li>
-      <li><a href="mixed.html">Mixed-Type bouquets</a></li>
-      <li><a href="sunflower.html">Sunflower bouquets</a></li>
-      <li><a href="snack.html">Snacks bouquets</a></li>
-      <li><a href="spray.html">Spray Roses bouquets</a></li>
-      <li><a href="money.html">Money bouquets</a></li>
-      <li><a href="tulip.html">Tulip bouquets</a></li>
-      <li><a href="daisy.html">Daisy bouquets</a></li>
+    <!-- ✅ NAV -->
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Collections</a>
+        <ul class="dropdown-content">
+          <li><a href="roses.html">Roses bouquets</a></li>
+          <li><a href="mixed.html">Mixed-Type bouquets</a></li>
+          <li><a href="sunflower.html">Sunflower bouquets</a></li>
+          <li><a href="snack.html">Snacks bouquets</a></li>
+          <li><a href="spray.html">Spray Roses bouquets</a></li>
+          <li><a href="money.html">Money bouquets</a></li>
+          <li><a href="tulip.html">Tulip bouquets</a></li>
+          <li><a href="daisy.html">Daisy bouquets</a></li>
+        </ul>
+      </li>
+
+      <li><a href="index.html#contact">Contact Us</a></li>
+
+      <li>
+        <a href="#" id="cart-toggle">
+          🛒 Cart (<span id="cart-count">0</span>)
+        </a>
+      </li>
     </ul>
-  </li>
 
-  <li><a href="index.html#contact">Contact Us</a></li>
-
-  <!-- ✅ CART -->
-  <li>
-    <a href="#" onclick="toggleCart()">
-  🛒 Cart (<span id="cart-count">0</span>)
-</a>
-  </li>
-</ul>
   </nav>
 </header>
   
@@ -330,202 +339,7 @@
   </div>
 </div>
 
-<script>
-// ================= STORAGE =================
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-
-// ================= SAVE =================
-function saveData(){
-  localStorage.setItem("cart", JSON.stringify(cart));
-  localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  updateCounts();
-}
-
-// ================= COUNTS =================
-function updateCounts(){
-  document.getElementById("cart-count").innerText =
-    cart.reduce((a,b)=>a+b.qty,0);
-}
-
-// ================= CART TOGGLE =================
-function toggleCart(){
-  document.getElementById("cartDrawer").classList.toggle("open");
-  renderCart();
-}
-
-// ================= ADD TO CART =================
-document.querySelectorAll(".add-to-cart").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    const card = btn.closest(".product-card");
-    const name = card.querySelector("h3").textContent;
-    const priceText = card.querySelector(".price").textContent;
-    const price = parseInt(priceText.replace(/[^0-9]/g,""));
-
-    const found = cart.find(i=>i.name===name);
-
-    if(found){
-      found.qty++;
-    }else{
-      cart.push({
-  name,
-  price,
-  qty: 1,
-  flowerColor: "",
-  wrapColor: "",
-  customNote: ""
-});
-    }
-
-    saveData();
-    renderCart();
-  });
-});
-
-// ================= RENDER CART =================
-function renderCart(){
-  const box = document.getElementById("cart-items");
-  box.innerHTML = "";
-
-  let total = 0;
-
-  cart.forEach((item,index)=>{
-    total += item.price * item.qty;
-
-    box.innerHTML += `
-  <div class="cart-item">
-    <div>
-      <b>${item.name}</b><br>
-      ${item.price} THB
-
-      <!-- 🌹 Flower Color -->
-      <div class="cart-option">
-        Flower:
-        <select onchange="updateOption(${index}, 'flowerColor', this.value)">
-          <option value="">Select</option>
-          <option value="Red" ${item.flowerColor==="Red"?"selected":""}>Red</option>
-          <option value="Pink" ${item.flowerColor==="Pink"?"selected":""}>Pink</option>
-          <option value="White" ${item.flowerColor==="White"?"selected":""}>White</option>
-          <option value="Yellow" ${item.flowerColor==="Yellow"?"selected":""}>Yellow</option>
-        </select>
-      </div>
-
-      <!-- 🎀 Wrap Color -->
-      <div class="cart-option">
-        Wrapping paper:
-        <select onchange="updateOption(${index}, 'wrapColor', this.value)">
-          <option value="">Select</option>
-          <option value="Black" ${item.wrapColor==="Black"?"selected":""}>Black</option>
-          <option value="Pink" ${item.wrapColor==="Pink"?"selected":""}>Pink</option>
-          <option value="White" ${item.wrapColor==="White"?"selected":""}>White</option>
-          <option value="Gold" ${item.wrapColor==="Gold"?"selected":""}>Gold</option>
-        </select>
-      </div>
-      
-      <div class="cart-option">
-  Special Note:
-  <input
-    type="text"
-    placeholder="Optional (leave blank if none)"
-    value="${item.customNote || ''}"
-    oninput="updateOption(${index}, 'customNote', this.value)"
-  >
-</div>
-
-    </div>
-
-    <div class="qty-box">
-      <button onclick="changeQty(${index},-1)">−</button>
-      ${item.qty}
-      <button onclick="changeQty(${index},1)">+</button>
-      <button onclick="removeItem(${index})">🗑</button>
-    </div>
-  </div>
-`;
-  });
-
-  document.getElementById("cart-total").innerText = total;
-}
-
-// ================= QTY =================
-function changeQty(i,delta){
-  cart[i].qty += delta;
-  if(cart[i].qty <= 0) cart.splice(i,1);
-  saveData();
-  renderCart();
-}
-
-// ================= REMOVE =================
-function removeItem(i){
-  cart.splice(i,1);
-  saveData();
-  renderCart();
-}
-
-// ================= WISHLIST =================
-document.querySelectorAll(".wishlist").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    btn.classList.toggle("active");
-    btn.innerHTML = btn.classList.contains("active")
-      ? '<i class="fa-solid fa-heart"></i>'
-      : '<i class="fa-regular fa-heart"></i>';
-  });
-});
-
-// ================= QUICK VIEW =================
-const quickModal = document.getElementById("quick-modal");
-
-document.querySelectorAll(".quick-view").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    document.getElementById("quick-img").src = btn.dataset.img;
-    document.getElementById("quick-name").textContent = btn.dataset.name;
-    document.getElementById("quick-price").textContent =
-      btn.dataset.price + " THB";
-    quickModal.style.display = "flex";
-  });
-});
-
-document.getElementById("quick-close").onclick = ()=>{
-  quickModal.style.display = "none";
-};
-
-// init
-updateCounts();
-renderCart();
-
-</script>
-
-<script>
-document.getElementById("customForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let flower = document.getElementById("flower").value;
-  let color = document.getElementById("color").value;
-  let budget = document.getElementById("budget").value;
-  let message = document.getElementById("message").value;
-
-  let text =
-    "Hello! I want to customize an order.%0A" +
-    "Name: " + name + "%0A" +
-    "Phone: " + phone + "%0A" +
-    "Flower: " + flower + "%0A" +
-    "Color: " + color + "%0A" +
-    "Budget: " + budget + "%0A" +
-    "Details: " + message;
-
-  let yourNumber = "66645807062";
-
-  window.open("https://wa.me/" + yourNumber + "?text=" + text, "_blank");
-});
-
-function updateOption(index, key, value){
-  cart[index][key] = value;
-  saveData();
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
