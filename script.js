@@ -27,10 +27,10 @@ function renderHomeProducts() {
     { id: 2, name: "Mixed-Type bouquets", image: "assets/images/2.jpg", link: "mixed.html" },
     { id: 3, name: "Sunflower bouquets", image: "assets/images/4.jpg", link: "sunflower.html" },
     { id: 4, name: "Snacks bouquets", image: "assets/images/3.jpg", link: "snack.html" },
-    { id: 5, name: "Spray Roses bouquets", image: "assets/images/6.jpg", link: "spray.html" },
-    { id: 6, name: "Money bouquets", image: "assets/images/7.jpg", link: "money.html" },
-    { id: 7, name: "Daisy bouquets", image: "assets/images/8.jpg", link: "daisy.html" },
-    { id: 8, name: "Tulip bouquets", image: "assets/images/5.jpg", link: "tulip.html" },
+    { id: 5, name: "Spray Roses bouquets", image: "assets/images/6.JPG", link: "spray.html" },
+    { id: 6, name: "Money bouquets", image: "assets/images/7.JPG", link: "money.html" },
+    { id: 7, name: "Daisy bouquets", image: "assets/images/8.JPG", link: "daisy.html" },
+    { id: 8, name: "Tulip bouquets", image: "assets/images/5.JPG", link: "tulip.html" },
   ];
 
   grid.innerHTML = products.map(product => `
