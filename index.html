@@ -13,49 +13,52 @@
 
   <body>
 
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar container">
-      <div class="logo">
-  <img src="assets/images/logo.png" alt="Fleur de Dan Logo">
-  <span>Fleur de Dan</span>
-      </div>
-      
+ <!-- Header -->
+<header class="header">
+  <nav class="navbar container">
 
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Fleur de Dan Logo">
+      <span>Fleur de Dan</span>
+    </div>
 
-  
-  <!-- Collections ကို dropdown လုပ်လိုက်တယ် -->
-  <li class="dropdown">
-    <a href="#shop" class="dropbtn">Collections</a>
-    <ul class="dropdown-content">
-      <li><a href="roses.html">Roses bouquets</a></li>
-      <li><a href="mixed.html">Mixed-Type bouquets</a></li>
-      <li><a href="sunflower.html">Sunflower bouquets</a></li>
-      <li><a href="snack.html">Snacks bouquets</a></li>
-      <li><a href="spray.html">Spray Roses bouquets</a></li>
-      <li><a href="money.html">Money bouquets</a></li>
-      <li><a href="tulip.html">Tulip bouquets</a></li>
-      <li><a href="daisy.html">Daisy bouquets</a></li>
+    <!-- 🍔 Hamburger -->
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+
+      <!-- Collections dropdown -->
+      <li class="dropdown">
+        <a href="#shop" class="dropbtn">Collections</a>
+        <ul class="dropdown-content">
+          <li><a href="roses.html">Roses bouquets</a></li>
+          <li><a href="mixed.html">Mixed-Type bouquets</a></li>
+          <li><a href="sunflower.html">Sunflower bouquets</a></li>
+          <li><a href="snack.html">Snacks bouquets</a></li>
+          <li><a href="spray.html">Spray Roses bouquets</a></li>
+          <li><a href="money.html">Money bouquets</a></li>
+          <li><a href="tulip.html">Tulip bouquets</a></li>
+          <li><a href="daisy.html">Daisy bouquets</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#contact">Contact Us</a></li>
     </ul>
-  </li>
 
-  <!-- ✅ NEW -->
-  <li><a href="#contact">Contact Us</a></li>
-
-  <!--<li><a href="#" id="cart-toggle">Cart (<span id="cart-count">0</span>)</a></li>-->
-</ul>
-
-    </nav>
-  </header>
+  </nav>
+</header>
 
   <!-- Hero -->
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Flowers That Speak When Words Cannot</h1>
       <p>Same-day delivery in Bangkok. Fresh, handcrafted bouquets for every moment.</p>
-      <a href="roses.html" class="btn-primary">Explore Collections</a>
+      <a href="#shop" class="btn-primary">Explore Collections</a>
     </div>
   </section>
 
@@ -87,93 +90,6 @@
 
   <script src="script.js"></script>
 
-
-  <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-/* ===== OPEN CLOSE ===== */
-function toggleCart(){
-  document.getElementById("cartDrawer").classList.toggle("open");
-}
-
-/* ===== CART COUNT ===== */
-function updateCartCount(){
-  const countEl = document.getElementById("cart-count");
-  if(!countEl) return;
-
-  let totalQty = 0;
-  cart.forEach(item=>{
-    totalQty += (item.qty || 1);
-  });
-
-  countEl.textContent = totalQty;
-}
-
-/* ===== RENDER CART ===== */
-function renderCart(){
-  const box = document.getElementById("cartItems");
-  const totalEl = document.getElementById("cartTotal");
-  if(!box) return;
-
-  box.innerHTML = "";
-  let total = 0;
-
-  cart.forEach((item,index)=>{
-    const priceNum = parseInt(item.price.replace(/,/g,""));
-    total += priceNum * (item.qty || 1);
-
-    box.innerHTML += `
-      <div class="cart-item">
-        <span>${item.name}</span>
-        <div class="qty-box">
-          <button onclick="changeQty(${index},-1)">−</button>
-          <span>${item.qty || 1}</span>
-          <button onclick="changeQty(${index},1)">+</button>
-          <button onclick="removeItem(${index})">🗑</button>
-        </div>
-      </div>
-    `;
-  });
-
-  if(totalEl) totalEl.textContent = total.toLocaleString()+" THB";
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-}
-
-/* ===== ADD TO CART ===== */
-function addToCart(name,price,img){
-  const found = cart.find(p=>p.name===name);
-  if(found){
-    found.qty = (found.qty||1)+1;
-  }else{
-    cart.push({name,price,img,qty:1});
-  }
-  renderCart();
-}
-
-/* ===== QTY ===== */
-function changeQty(index,change){
-  cart[index].qty += change;
-  if(cart[index].qty<=0) cart.splice(index,1);
-  renderCart();
-}
-
-/* ===== REMOVE ===== */
-function removeItem(index){
-  cart.splice(index,1);
-  renderCart();
-}
-
-/* ===== NAV CLICK ===== */
-document.getElementById("cart-toggle")?.addEventListener("click",(e)=>{
-  e.preventDefault();
-  toggleCart();
-});
-
-/* ===== INIT ===== */
-updateCartCount();
-renderCart();
-</script>
 
 <section id="contact" class="contact section-padding">
   <div class="container contact-container">
