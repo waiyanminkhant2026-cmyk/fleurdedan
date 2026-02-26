@@ -181,21 +181,6 @@ body {
   margin-bottom: 1.2rem;
 }
 
-.add-to-cart {
-  width: 100%;
-  padding: 0.9rem;
-  background: #9b2d30;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.add-to-cart:hover {
-  background: #7d2327;
-}
 
 /* Cart Modal */
 .modal {
@@ -878,18 +863,21 @@ h1, h2, h3, .logo {
 
 /* BUTTON */
 .add-to-cart{
-  background:#a83232;
-  color:#fff;
-  border:none;
-  padding:12px 20px;
-  border-radius:30px;
-  cursor:pointer;
-  width:100%;
-  font-weight:600;
+  background: linear-gradient(135deg, #e91e63, #d63384);
+  color: white;
+  border: none;
+  padding: 12px 50px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .add-to-cart:hover{
-  background:#8e2626;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(214, 51, 108, 0.3);
 }
 
 .products-grid {
